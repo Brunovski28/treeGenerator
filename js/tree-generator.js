@@ -1,10 +1,10 @@
 AFRAME.registerComponent('tree-generator', {
     schema:{
-        posX:   {type: 'int', default: -55}   // Posição X fixa inicial
-    ,   posZ:   {type: 'int', default: -50} // Posição Z fixa inicial
-    ,   posAltX: {type: 'int', default: 0}  // Posição para alteração de distancia entre as arvores
-    ,   posAltY: {type: 'int', default: 0}  // Posição para alteração de distancia entre as arvores
-    ,   columns:  {type: 'int', default: 3} // Quantidade de colunas
+        posX:   {type: 'int', default: -55}     // Posição X fixa inicial
+    ,   posZ:   {type: 'int', default: -50}     // Posição Z fixa inicial
+    ,   posAltX: {type: 'int', default: 0}      // Posição para alteração de distancia entre as arvores
+    ,   posAltY: {type: 'int', default: 0}      // Posição para alteração de distancia entre as arvores
+    ,   columns:  {type: 'int', default: 3}     // Quantidade de colunas
     ,   quantityTree: {type: 'int', default: 5} // Quantidade de arvores em cada colunas
     },
 
@@ -26,7 +26,7 @@ AFRAME.registerComponent('tree-generator', {
             sceneEl.appendChild(tree);
             }
 
-            this.data.posX = -55
+            this.data.posX = -55 // Tá fixo aqui, vai ter um problema
             this.data.posZ += 10 + this.data.posAltY        
             
         }
