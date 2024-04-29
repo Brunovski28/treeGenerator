@@ -11,13 +11,13 @@
         
         <a-plane rotation="-90 0 0" width="100" height="100" color="#7EC8E3"></a-plane>
         <a-assets>
-            <a-asset-items id="arvore_v1" src="objects/arvore_1_com_textura.glb"></a-asset-items>
+            <a-asset-items id="arvore_v1" src="assets/arvore_1_com_textura.glb"></a-asset-items>
+            <a-entity id="tree-template" gltf-model="#arvore_v1"></a-entity>
         </a-assets>
         
-        <a-entity tree-generator></a-entity>
+        <a-entity tree-generator="quantityTree:10; columns:5; posAltX: 5; posAltY: 5"></a-entity>        
         
         
-        <a-entity id="tree-template" gltf-model="#arvore_v1"></a-entity>
 
 
     </a-scene>

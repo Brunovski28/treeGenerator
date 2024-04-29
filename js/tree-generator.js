@@ -1,29 +1,33 @@
 AFRAME.registerComponent('tree-generator', {
     schema:{
-        posX: {type: 'int', default: 0}
-    ,   posZ: {type: 'int', default: -50}
+        posX:   {type: 'int', default: -55}   // Posição X fixa inicial
+    ,   posZ:   {type: 'int', default: -50} // Posição Z fixa inicial
+    ,   posAltX: {type: 'int', default: 0}  // Posição para alteração de distancia entre as arvores
+    ,   posAltY: {type: 'int', default: 0}  // Posição para alteração de distancia entre as arvores
+    ,   columns:  {type: 'int', default: 3} // Quantidade de colunas
+    ,   quantityTree: {type: 'int', default: 5} // Quantidade de arvores em cada colunas
     },
 
     init: function () {
         var sceneEl = this.el;
         var treeTemplate = document.querySelector('#tree-template');
 
-        for (var i = 0; i < 7; i++) {
-            for (var j = 0; j < 10; j++){
+        for (var i = 0; i < this.data.columns; i++) {
+            for (var j = 0; j < this.data.quantityTree; j++){
 
             var scale = Math.random() * 0.5 + 0.5;
             
-            this.data.posX += 5
+            this.data.posX += 5 + this.data.posAltX;
 
             var tree = treeTemplate.cloneNode(true);
-            tree.setAttribute('position', { x: this.data.posX, y: 0, z: this.data.posZ });
+            tree.setAttribute('position', { x: this.data.posX + (Math.random() * 3), y: 0, z: this.data.posZ + (Math.random() * 3)});
             tree.setAttribute('scale', { x: scale, y: scale, z: scale });
 
             sceneEl.appendChild(tree);
             }
 
-            this.data.posX = 0
-            this.data.posZ += 15           
+            this.data.posX = -55
+            this.data.posZ += 10 + this.data.posAltY        
             
         }
     }
